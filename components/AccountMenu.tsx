@@ -16,11 +16,11 @@ const AccountMenu: React.FC<AccountMenuProps> = ({
                     <div className="px-3 group/item flex flex-row gap-3 items-center w-full">
                         <img className="w-8 rounded-md" src="/images/default-blue.png" alt = "profile pic"/>
                         <p className="text-white text-sm group=hover/items:underline">
-                            Username
+                            My Account
                         </p>
                     </div>
                     <hr className="bg-gray-600 border-0 h-px my-4" />
-                    <div onClick={() => signOut} className="px-3 text-center text-white text-sm hover:underline">
+                    <div onClick={() => signOut()} className="px-3 text-center text-white text-sm hover:underline">
                         Sign out of Netflix
                     </div>
                 </div>
