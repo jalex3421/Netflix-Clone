@@ -3,6 +3,7 @@ import prismadb from '@/lib/prismadb';
 import serverAuth from "@/lib/serverAuth";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+
     if(req.method !== 'GET'){
         return res.status(405).end();
     }
@@ -13,13 +14,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             we are going to find the random movie that we are going to show
             every time the user starts the service
         */
-       const movieCount = await prismadb.movie.count();
+       const movieCount = 4;
        const randomIndex = Math.floor(Math.random()*movieCount);
 
        const randomMovies = await prismadb.movie.findMany({
             take:1,
             skip: randomIndex
        });
+    
        return res.status(200).json(randomMovies[0]);
 
     }catch(error){
